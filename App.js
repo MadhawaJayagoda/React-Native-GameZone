@@ -13,11 +13,16 @@ const getFonts = async() => {
 
 export default function App() {
   const [loaded, setLoaded] = useState(false);
-  return (
-    <AppLoading
-      startAsync={getFonts}
-      onFinish={() => setLoaded(true)}
-      onError={(error)=> console.warn(error)}
-    />
-  );
+
+  if (loaded) {
+    return <Navigator />;
+  } else {
+    return (
+      <AppLoading
+        startAsync={getFonts}
+        onFinish={() => setLoaded(true)}
+        onError={(error)=> console.warn(error)}
+      />
+    );
+  }
 }
