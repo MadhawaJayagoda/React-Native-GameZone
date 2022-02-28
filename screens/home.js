@@ -11,6 +11,16 @@ export default function Home({ navigation }) {
         { title: 'Not so Final Fantasy', rating: 3, body: 'lorem ipsum', key: '3'}
     ]);
 
+    const addReview = (inc_review) => {
+        let allReviews = [...reviews]
+        let lastElement = allReviews.pop();
+        let lastKey = parseInt(lastElement.key, 10);
+
+        const newReviewsArray = [ ...reviews, { ...inc_review, "key": (lastKey + 1).toString() }]
+        setReviews(newReviewsArray);
+        setModalOpen(false);
+    }
+
     return (
       <View style={globalStyles.container}>
           <Modal visible={modalOpen} animationType='slide'>
