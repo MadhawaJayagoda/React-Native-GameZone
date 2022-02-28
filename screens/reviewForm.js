@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Button, TextInput, View, Text } from "react-native";
 import { globalStyles } from "../styles/global";
 import { Formik } from "formik";
+import * as yup from 'yup';
 import ReviewSchema from "../schemas/ReviewSchema";
 import FlatButton from "../shared/button";
 
@@ -16,8 +17,9 @@ export default function ReviewForm({handleSubmit}) {
     <View style={globalStyles.container}>
       <Formik
         initialValues={fields}
+        validationSchema={ReviewSchema}
         onSubmit={(values, actions) => {
-          actions.resetForm();  // Reset all the form fields
+          actions.resetForm();
           handleSubmit(values);
         }}
       >
@@ -64,7 +66,7 @@ export default function ReviewForm({handleSubmit}) {
               <FlatButton text='submit' onPressHandler={props.handleSubmit} />
             </View>
           </View>
-        )} 
+        )}
       </Formik>
     </View>
   );
