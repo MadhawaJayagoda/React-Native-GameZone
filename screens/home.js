@@ -55,16 +55,30 @@ export default function Home({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    modalToggleHolder: {
-        position: 'absolute',
-        right: 25,
-        bottom: 25,
-        zIndex: 1,
-    },
-    modalToggle: {
-        backgroundColor: '#FF1493',
-        borderRadius: 50,
-        color: '#fff',
-        padding: 10,
-    }
+  modalContent: {
+      paddingVertical: 30,
+      paddingHorizontal:10,
+      flex: 1
+  },
+  modalToggleHolder: {
+      position: 'absolute',
+      right: 25,
+      bottom: 25,
+      zIndex: 1,
+  },
+  modalToggle: {
+      backgroundColor: '#FF1493',
+      borderRadius: 50,
+      color: '#fff',
+      padding: 10,
+  },
+  closeIconHolder: {
+      position:'absolute',
+      right: 20,
+      top: 20,
+      zIndex: 1,
+  },
+  closeIcon: {
+      color: '#000000'
+  }
 })
